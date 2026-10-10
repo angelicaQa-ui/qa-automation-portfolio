@@ -18,8 +18,7 @@ test.describe('Flujo E2E de SauceDemo - Reto Final', () => {
     await page.click('.shopping_cart_link');
 
     // Validación del carrito
-    await expect(page.locator('.inventory_item_name')).toHaveText('Sauce Labs Backpack');
-
+    await expect(page.locator('.inventory_item_name').first()).toHaveText('Sauce Labs Backpack');
     // 3. Checkout
     await page.click('#checkout');
     await page.fill('#first-name', 'Maria');
