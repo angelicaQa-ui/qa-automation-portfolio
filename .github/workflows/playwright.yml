@@ -34,3 +34,6 @@ jobs:
         name: playwright-html-report
         path: playwright-report/
         retention-days: 30
+
+    env:
+      BASE_URL: ${{ secrets.BASE_URL }}
