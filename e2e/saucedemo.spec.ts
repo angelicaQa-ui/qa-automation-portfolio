@@ -4,7 +4,7 @@ test.describe('Flujo E2E de SauceDemo - Reto Final', () => {
 
   test('Happy Path: Compra exitosa de producto @smoke @regression', async ({ page }) => {
     // 1. Login
-    await page.goto(process.env.BASE_URL as string);
+    await page.goto('/');
     await page.fill('#user-name', 'standard_user');
     await page.fill('#password', 'secret_sauce');
     await page.click('#login-button');
@@ -38,7 +38,7 @@ test.describe('Flujo E2E de SauceDemo - Reto Final', () => {
   });
 
   test('Caso Negativo 1: Usuario bloqueado muestra mensaje de error @regression', async ({ page }) => {
-    await page.goto(process.env.BASE_URL as string);
+    await page.goto('/');
     await page.fill('#user-name', 'locked_out_user');
     await page.fill('#password', 'secret_sauce');
     await page.click('#login-button');
@@ -50,7 +50,7 @@ test.describe('Flujo E2E de SauceDemo - Reto Final', () => {
   });
 
   test('Caso Negativo 2: Campos de login vacíos @regression', async ({ page }) => {
-    await page.goto(process.env.BASE_URL as string);
+    await page.goto('/');
     await page.click('#login-button');
 
     // Validación de error por campos vacíos

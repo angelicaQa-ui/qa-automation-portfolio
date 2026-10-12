@@ -13,14 +13,14 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   /* Desactivar pruebas en paralelo en CI */
   workers: process.env.CI ? 1 : undefined,
-  /* Reportador a utilizar. Ver https://playwright.dev/docs/test-reporters */
+  /* Reportador a utilizar */
   reporter: 'html',
-  /* Configuración compartida para todos los proyectos a continuación. Ver https://playwright.dev/docs/api/class-testoptions */
+  /* Configuración compartida para todos los proyectos */
   use: {
     /* URL base a utilizar en acciones como `await page.goto('/')` */
     baseURL: process.env.BASE_URL || 'https://www.saucedemo.com',
 
-    /* Recopilar traza cuando se reintente una prueba fallida. Ver https://playwright.dev/docs/trace-viewer */
+    /* Recopilar traza cuando se reintente una prueba fallida */
     trace: 'on-first-retry',
   },
 
@@ -28,7 +28,10 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { 
+        ...devices['Desktop Chrome'],
+        channel: 'chrome', // Fuerza el uso del navegador Chrome instalado en el equipo
+      },
     },
   ],
 });
