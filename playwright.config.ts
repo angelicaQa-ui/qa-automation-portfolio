@@ -1,4 +1,8 @@
 import { defineConfig, devices } from '@playwright/test';
+import * as dotenv from 'dotenv';
+
+// Carga las variables de entorno desde el archivo .env local de forma segura
+dotenv.config();
 
 /**
  * Ver https://playwright.dev/docs/test-configuration.
@@ -17,8 +21,8 @@ export default defineConfig({
   reporter: 'html',
   /* Configuración compartida para todos los proyectos */
   use: {
-    /* URL base a utilizar en acciones como `await page.goto('/')` */
-    baseURL: process.env.BASE_URL || 'https://www.saucedemo.com',
+    /* URL base leída de forma segura desde el entorno o secretos */
+    baseURL: process.env.BASE_URL,
 
     /* Recopilar traza cuando se reintente una prueba fallida */
     trace: 'on-first-retry',
