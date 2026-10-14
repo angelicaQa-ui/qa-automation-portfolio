@@ -27,7 +27,11 @@ jobs:
     - name: Run Playwright tests
       run: npx playwright test
       env:
-        BASE_URL: ${{ secrets.BASE_URL }}  # <-- Se inyecta aquí correctamente
+        BASE_URL: ${{ secrets.BASE_URL }} # <--- Se inyecta aquí correctamente
+
+    - name: Ejecutar Pipeline Agéntico (Orquestador)
+      if: always()
+      run: npm run agent:run
 
     - name: Upload HTML Report
       uses: actions/upload-artifact@v4
