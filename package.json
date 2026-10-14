@@ -1,24 +1,25 @@
 {
   "name": "qa-automation-portfolio",
   "version": "1.0.0",
-  "description": "",
+  "description": "Portafolio de automatización con Playwright y arquitectura de agentes IA con Self-Healing",
   "main": "index.js",
+  "type": "commonjs",
   "directories": {
     "test": "tests"
   },
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:report": "playwright show-report",
+    "agent:run": "node src/agents/agent-orchestrator.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/angelicaQa-ui/qa-automation-portfolio.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "María Angélica Pérez Polanias",
   "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/angelicaQa-ui/qa-automation-portfolio/issues"
-  },
-  "homepage": "https://github.com/angelicaQa-ui/qa-automation-portfolio#readme",
   "devDependencies": {
     "@playwright/test": "^1.64.0",
     "@types/node": "^26.6.5",
